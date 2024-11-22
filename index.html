@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda Ocean Revive ofrece materiales sostenibles para la construcción y decoración utilizando plásticos reciclados marinos.">
+    <meta name="keywords" content="materiales sostenibles, construcción, decoración, reciclaje, plásticos marinos">
+    <title>Tienda Ocean Revive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="Imagenes/Logo.jpg" alt="Logo de Ocean Revive" class="logo" aria-label="Logo de Ocean Revive">
+            <div class="header-text">
+                <h1>Ocean Revive</h1>
+                <p>Materiales sostenibles para construcción y decoración</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#objetivo">Objetivo</a></li>
+            <li><a href="#propuesta">Propuesta</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#elaboracion">Proceso de Elaboración</a></li>
+            <li><a href="#compra">Prototipos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Objetivo -->
+    <section id="objetivo">
+        <h2>Objetivo</h2>
+        <p>Desarrollar productos ecológicos hechos de residuos marinos reciclados, contribuyendo a la reducción de la contaminación y promoviendo la construcción sostenible.</p>
+    </section>
+
+    <!-- Propuesta -->
+    <section id="propuesta">
+        <h2>Propuesta</h2>
+        <ul>
+            <li>Planchas ecológicas de alta calidad, diseñadas específicamente para satisfacer las necesidades de la construcción sostenible y moderna.</li>
+            <li>Fabricadas con materiales reciclados, ofreciendo resistencia, durabilidad y sostenibilidad.</li>
+        </ul>
+    </section>
+
+    <!-- Clientes -->
+    <section id="clientes">
+        <h2>Clientes</h2>
+        <ul>
+            <li>Empresas de construcción interesadas en materiales ecológicos y de alta durabilidad.</li>
+            <li>Fabricantes de mobiliario y decoración enfocados en diseño sostenible.</li>
+            <li>ONGs comprometidas con la sostenibilidad ambiental.</li>
+        </ul>
+    </section>
+
+    <!-- Proceso de Elaboración -->
+    <section id="elaboracion">
+        <h2>Proceso de Elaboración</h2>
+        <p>Descubre cómo transformamos plásticos reciclados marinos en materiales sostenibles.</p>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <img src="Imagenes/Proceso1.jpeg" alt="Destrucción del plástico">
+                    <p>Destrucción del plástico: los residuos marinos se trituran para facilitar su transformación.</p>
+                </div>
+                <div class="slide">
+                    <img src="Imagenes/Proceso2.jpeg" alt="Moldeo del plástico reciclado">
+                    <p>Moldeo: los materiales triturados se calientan y moldean en formas específicas.</p>
+                </div>
+                <div class="slide">
+                    <img src="Imagenes/Proceso3.jpeg" alt="Prototipo saliendo">
+                    <p>Prototipo saliendo: el producto moldeado comienza a tomar forma como una plancha ecológica.</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+
+    <!-- Opciones de Compra -->
+    <section id="compra">
+        <h2>Opciones de Compra</h2>
+        <div class="compra-grid">
+            <div class="producto">
+                <img src="Imagenes/Prototipo 1.png" alt="Plancha Ecológica">
+                <h3>Plancha Ecológica Multifuncional</h3>
+                <p>Fabricada con residuos plásticos marinos reciclados.</p>
+                <p class="precio">Precio: S/ 187.50</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Plancha Ecológica Multifuncional', 187.50)">Añadir al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/Prototipo 2.png" alt="Plancha Acústica">
+                <h3>Plancha Acústica y Térmica</h3>
+                <p>Especial para aislamiento acústico y térmico.</p>
+                <p class="precio">Precio: S/ 225.00</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Plancha Acústica y Térmica', 225.00)">Añadir al Carrito</button>
+            </div>
+        </div>
+
+        <!-- Carrito -->
+        <div id="carrito" style="display: none;">
+            <h2>Carrito de Compras</h2>
+            <div id="lista-carrito">
+                <p>Tu carrito está vacío.</p>
+            </div>
+            <div id="total">
+                <h3>Total: S/<span id="total-precio">0.00</span></h3>
+                <button class="boton-compra" onclick="finalizarCompra()">Finalizar Compra</button>
+            </div>
+            <button class="boton-compra" onclick="mostrarProductos()">Volver a Productos</button>
+        </div>
+
+        <!-- Formulario Dinámico -->
+        <div id="formulario-compra" style="display: none;">
+            <h2>Finalizar Compra</h2>
+            <label for="tipo-cliente">Seleccione el tipo de cliente:</label>
+            <select id="tipo-cliente" onchange="mostrarFormulario()">
+                <option value="" disabled selected>Seleccione</option>
+                <option value="persona">Persona</option>
+                <option value="empresa">Empresa</option>
+            </select>
+        
+            <div id="formulario-persona" style="display: none; margin-top: 20px;">
+                <h3>Información Personal</h3>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Ingrese su nombre completo" required>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" placeholder="Ingrese su correo electrónico" required>
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" placeholder="Ingrese su dirección" required>
+            </div>
+        
+            <div id="formulario-empresa" style="display: none; margin-top: 20px;">
+                <h3>Información Empresarial</h3>
+                <label for="nombre-empresa">Nombre de la Empresa:</label>
+                <input type="text" id="nombre-empresa" placeholder="Ingrese el nombre de su empresa" required>
+                <label for="ruc">RUC:</label>
+                <input type="text" id="ruc" placeholder="Ingrese el RUC" required>
+                <label for="correo-empresa">Correo Electrónico:</label>
+                <input type="email" id="correo-empresa" placeholder="Ingrese el correo electrónico de la empresa" required>
+                <label for="direccion-empresa">Dirección:</label>
+                <input type="text" id="direccion-empresa" placeholder="Ingrese su dirección" required>
+            </div>
+        
+            <div id="metodo-pago-container" style="margin-top: 20px;">
+                <h3>Método de Pago</h3>
+                <label for="metodo-pago">Seleccione el método de pago:</label>
+                <select id="metodo-pago" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="Tarjeta">Tarjeta de Crédito/Débito</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Transferencia">Transferencia Bancaria</option>
+                </select>
+            </div>    
+        
+            <button class="boton-compra" onclick="procesarCompra()">Confirmar Compra</button>
+        </div>
+        
+        <!-- Botón centrado -->
+        <div class="ver-carrito-container">
+            <button class="boton-compra" onclick="mostrarCarrito()" id="ver-carrito">Ver Carrito</button>
+        </div>
+    </section>
+    
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Para más información sobre nuestros productos:</p>
+        <p>Email: oceanrevive546@gmail.com</p>
+        <p>Teléfono: +123 456 7890</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Ocean Revive | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Biblioteca EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        // Inicializa EmailJS con tu clave pública
+        emailjs.init("OceanRevive"); // Reemplaza "TU_ID_PUBLICO" con tu clave pública de EmailJS
+    </script>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
